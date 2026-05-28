@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+*.pyc
+# Local SQLite — contains customer PII, never push to GitHub
+db.sqlite3
+db.sqlite3-journal
+*.sqlite3
+# Secret env file — contains DJANGO_SECRET_KEY and DATABASE_URL with the Neon password
+.env
+.env.local
+.env.production
+# Collected static files (regenerated on Vercel build)
+staticfiles/
+# Backups / scratch files
+backups/
+*.bak
+_*.py
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

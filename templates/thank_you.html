@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Thank you — {{ brand_name }}{% endblock %}
+
+{% block content %}
+<section class="vt-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 text-center">
+        <div class="vt-thanks-card">
+          <div class="vt-thanks-emoji">🎉</div>
+          <h1 class="mb-2">Thank you!</h1>
+          <p class="lead mb-1">You're on the list.</p>
+          <p class="mb-4">
+            We'll call you soon at
+            <strong class="vt-accent">{{ masked_phone }}</strong>.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2 justify-content-center">
+            <a href="{% url 'customers:landing' %}" class="btn vt-btn-outline">Back to home</a>
+            <a href="https://wa.me/91{{ brand_phone }}?text=Hi%2C%20I%20just%20registered%20on%20{{ brand_name|urlencode }}%2C%20can%20you%20call%20me%3F"
+               target="_blank" rel="noopener noreferrer"
+               class="btn vt-btn-primary">
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

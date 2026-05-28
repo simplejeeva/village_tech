@@ -1,0 +1,374 @@
+:root {
+  --vt-green: #2E7D32;
+  --vt-green-dark: #1B5E20;
+  --vt-orange: #FB8C00;
+  --vt-yellow: #FFC107;
+  --vt-cream: #FFF8E1;
+  --vt-text: #212121;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--vt-cream);
+  color: var(--vt-text);
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+}
+
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.2; }
+h1 { font-size: clamp(1.8rem, 6vw, 3rem); }
+h2 { font-size: clamp(1.4rem, 4.5vw, 2.2rem); }
+
+a { color: var(--vt-green-dark); }
+a:hover { color: var(--vt-orange); }
+
+.vt-navbar {
+  background: #ffffffd9;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #00000010;
+}
+.vt-navbar .navbar-brand { color: var(--vt-green-dark); font-size: 1.25rem; }
+.vt-leaf { font-size: 1.3rem; }
+
+.vt-btn-primary {
+  background: var(--vt-green);
+  color: #fff;
+  border: 0;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.vt-btn-primary:hover { background: var(--vt-orange); color: #fff; }
+
+.vt-btn-outline {
+  background: transparent;
+  color: var(--vt-green-dark);
+  border: 1.5px solid var(--vt-green);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.vt-btn-outline:hover { background: var(--vt-green); color: #fff; }
+
+.vt-footer {
+  background: var(--vt-green-dark);
+  color: #fff;
+}
+.vt-footer a { color: var(--vt-yellow); text-decoration: none; }
+.vt-footer a:hover { color: #fff; }
+
+/* ===== Hero ===== */
+.vt-hero {
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFE0B2 100%);
+  padding: clamp(2rem, 6vw, 5rem) 0;
+}
+.vt-eyebrow {
+  display: inline-block;
+  background: var(--vt-green);
+  color: #fff;
+  padding: 0.25rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+.vt-hero-title { color: var(--vt-green-dark); margin-bottom: 1rem; }
+.vt-hero-title .vt-accent { color: var(--vt-orange); }
+.vt-hero-sub { font-size: 1.05rem; color: #444; margin-bottom: 1.25rem; }
+.vt-hero-art {
+  background: #fff;
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 40px -20px rgba(46, 125, 50, 0.35);
+  text-align: center;
+}
+.vt-hero-emoji { font-size: clamp(3rem, 14vw, 6rem); line-height: 1.2; letter-spacing: 0.25rem; }
+
+/* ===== Sections ===== */
+.vt-section { padding: clamp(2rem, 5vw, 4rem) 0; }
+.vt-section-light { background: #fff; }
+.vt-section h2 { color: var(--vt-green-dark); }
+
+/* ===== Category cards ===== */
+.vt-category-card {
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 18px;
+  padding: 1.25rem 0.75rem;
+  box-shadow: 0 6px 16px -10px rgba(0,0,0,0.2);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.vt-category-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--vt-orange);
+}
+.vt-category-emoji { font-size: 2.5rem; margin-bottom: 0.4rem; }
+.vt-category-label { font-weight: 600; color: var(--vt-green-dark); }
+
+/* ===== Steps ===== */
+.vt-step {
+  background: var(--vt-cream);
+  border-radius: 18px;
+  padding: 1.5rem 1.25rem;
+  height: 100%;
+  border-left: 6px solid var(--vt-orange);
+}
+.vt-step-num {
+  display: inline-block;
+  width: 2.25rem;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  text-align: center;
+  background: var(--vt-orange);
+  color: #fff;
+  border-radius: 50%;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.vt-step-title { color: var(--vt-green-dark); font-size: 1.15rem; margin-bottom: 0.4rem; }
+.vt-step-text { color: #444; margin: 0; }
+
+/* ===== Why cards ===== */
+.vt-why {
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.25rem 0.75rem;
+  box-shadow: 0 6px 16px -10px rgba(0,0,0,0.15);
+  height: 100%;
+}
+.vt-why-icon { font-size: 2rem; margin-bottom: 0.4rem; }
+.vt-why-label { font-weight: 600; color: var(--vt-green-dark); }
+
+/* ===== Register form — refined ===== */
+.vt-form-card {
+  background: #fff;
+  border-radius: 28px;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: 0 30px 60px -30px rgba(46, 125, 50, 0.4);
+  border-top: 6px solid var(--vt-green);
+  position: relative;
+  overflow: hidden;
+}
+.vt-form-card::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, var(--vt-yellow) 0%, transparent 70%);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+.vt-form-card > * { position: relative; z-index: 1; }
+
+.vt-form-eyebrow {
+  display: inline-block;
+  background: var(--vt-cream);
+  color: var(--vt-green-dark);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+.vt-form-title {
+  color: var(--vt-green-dark);
+  font-size: clamp(1.3rem, 4vw, 1.7rem);
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.01em;
+}
+.vt-form-sub {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Inputs: refined, not chunky */
+.vt-form-card .vt-input {
+  border-radius: 14px;
+  border: 1.5px solid #e8e8e8;
+  background: #fafafa;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.vt-form-card .form-floating > .vt-input {
+  height: calc(3.25rem + 2px);
+  padding: 1rem 0.85rem;
+}
+.vt-form-card .form-floating > .vt-input.vt-textarea {
+  height: 110px;
+}
+.vt-form-card .vt-input::placeholder { color: transparent; }
+.vt-form-card .vt-input:focus {
+  border-color: var(--vt-green);
+  background: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.12);
+}
+
+.vt-form-card .form-floating > label {
+  color: #999;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 1rem 0.85rem;
+  transition: color 0.15s ease;
+}
+.vt-form-card .form-floating > .vt-input:focus ~ label,
+.vt-form-card .form-floating > .vt-input:not(:placeholder-shown) ~ label {
+  color: var(--vt-green-dark);
+  font-weight: 600;
+  opacity: 1;
+  transform: scale(0.78) translateY(-0.6rem) translateX(0.1rem);
+}
+
+.vt-field-error {
+  color: #c62828;
+  font-size: 0.8rem;
+  margin: 0.25rem 0 0 0.25rem;
+}
+
+/* Submit button — calmer height, keeps brand pill shape */
+.vt-form-card .vt-submit {
+  padding: 0.85rem 1.25rem;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.vt-form-fineprint {
+  color: #888;
+  font-size: 0.78rem;
+  text-align: center;
+  margin: 0.85rem 0 0 0;
+}
+
+/* ===== Thank you ===== */
+.vt-thanks-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: clamp(2rem, 5vw, 3rem) clamp(1.25rem, 4vw, 2.5rem);
+  box-shadow: 0 20px 40px -20px rgba(46, 125, 50, 0.3);
+  border-top: 8px solid var(--vt-yellow);
+}
+.vt-thanks-emoji { font-size: 4rem; line-height: 1; margin-bottom: 0.5rem; }
+.vt-thanks-card .vt-accent { color: var(--vt-orange); }
+
+/* ===== Customer dashboard (/customer/) ===== */
+.vt-dashboard-body {
+  background: var(--vt-cream);
+  min-height: 100vh;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.vt-dashboard-header {
+  background: #fff;
+  border-bottom: 4px solid var(--vt-green);
+  box-shadow: 0 2px 8px -4px rgba(0,0,0,0.08);
+  margin-bottom: 0;
+}
+.vt-stat-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 1rem 0.75rem;
+  box-shadow: 0 6px 16px -10px rgba(0,0,0,0.15);
+  border-top: 4px solid var(--vt-green);
+  text-align: center;
+  height: 100%;
+}
+.vt-stat-pending { border-top-color: var(--vt-orange); }
+.vt-stat-done    { border-top-color: var(--vt-yellow); }
+.vt-stat-num {
+  font-size: clamp(1.8rem, 6vw, 2.5rem);
+  font-weight: 700;
+  color: var(--vt-green-dark);
+  line-height: 1;
+}
+.vt-stat-label { color: #666; font-size: 0.85rem; margin-top: 0.4rem; }
+
+.vt-table-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: clamp(1rem, 3vw, 1.5rem);
+  box-shadow: 0 6px 16px -10px rgba(0,0,0,0.15);
+}
+.vt-customer-table thead th {
+  color: var(--vt-green-dark);
+  font-weight: 600;
+  border-bottom: 2px solid var(--vt-green);
+  white-space: nowrap;
+}
+.vt-customer-table tbody td { vertical-align: middle; }
+.vt-phone-link {
+  color: var(--vt-green-dark);
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.vt-phone-link:hover { color: var(--vt-orange); }
+.vt-wa-link {
+  text-decoration: none;
+  margin-left: 0.4rem;
+  font-size: 1.1rem;
+}
+.vt-badge-done    { background: var(--vt-green); color: #fff; font-weight: 600; padding: 0.4rem 0.7rem; }
+.vt-badge-pending { background: var(--vt-yellow); color: var(--vt-text); font-weight: 600; padding: 0.4rem 0.7rem; }
+
+/* ===== Customer login (/customer/login/) ===== */
+.vt-login-body {
+  background: linear-gradient(135deg, #FFF8E1 0%, #FFE0B2 100%);
+  min-height: 100vh;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+}
+.vt-login-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+}
+.vt-login-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 30px 50px -25px rgba(46, 125, 50, 0.4);
+  border-top: 6px solid var(--vt-green);
+}
+.vt-login-leaf { font-size: 2.5rem; line-height: 1; }
+.vt-login-card .vt-input {
+  border-radius: 14px;
+  border: 1.5px solid #e8e8e8;
+  background: #fafafa;
+  font-size: 0.95rem;
+  font-weight: 500;
+  height: calc(3.25rem + 2px);
+  padding: 1rem 0.85rem;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.vt-login-card .vt-input::placeholder { color: transparent; }
+.vt-login-card .vt-input:focus {
+  border-color: var(--vt-green);
+  background: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.12);
+}
+.vt-login-card .form-floating > label {
+  color: #999;
+  font-weight: 500;
+  padding: 1rem 0.85rem;
+}
+.vt-login-card .form-floating > .vt-input:focus ~ label,
+.vt-login-card .form-floating > .vt-input:not(:placeholder-shown) ~ label {
+  color: var(--vt-green-dark);
+  font-weight: 600;
+  transform: scale(0.78) translateY(-0.6rem) translateX(0.1rem);
+}
+.vt-login-card .vt-submit {
+  padding: 0.85rem 1.25rem;
+  font-size: 1rem;
+}

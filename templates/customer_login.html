@@ -1,0 +1,56 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in — {{ brand_name }} Dashboard</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body class="vt-login-body">
+
+  <main class="vt-login-wrap">
+    <div class="vt-login-card">
+      <div class="text-center mb-3">
+        <div class="vt-login-leaf">🌿</div>
+        <h1 class="h4 mb-1">{{ brand_name }}</h1>
+        <p class="text-muted small mb-0">Customer Dashboard</p>
+      </div>
+
+      {% if error %}
+        <div class="alert alert-danger py-2 small mb-3">{{ error }}</div>
+      {% endif %}
+
+      <form method="post" action="{% url 'customers:customer_login' %}" novalidate>
+        {% csrf_token %}
+        <div class="form-floating mb-3 vt-login-field">
+          <input
+            type="password"
+            id="vt-password"
+            name="password"
+            class="form-control vt-input"
+            placeholder="Password"
+            autocomplete="current-password"
+            required
+            autofocus
+          >
+          <label for="vt-password">Password</label>
+        </div>
+        <button type="submit" class="btn vt-btn-primary w-100 vt-submit">
+          Sign in <span aria-hidden="true">→</span>
+        </button>
+      </form>
+
+      <p class="text-center text-muted small mt-3 mb-0">
+        🔒 Private · owner access only
+      </p>
+    </div>
+  </main>
+
+</body>
+</html>

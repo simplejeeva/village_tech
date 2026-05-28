@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- ============ HERO ============ -->
+<section class="vt-hero">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7 text-center text-lg-start">
+        <span class="vt-eyebrow">Doorstep delivery · Fresh daily</span>
+        <h1 class="vt-hero-title">
+          Fresh <span class="vt-accent">groceries</span>,
+          <span class="vt-accent">meat</span> &amp;
+          <span class="vt-accent">veggies</span><br>
+          right at your door.
+        </h1>
+        <p class="vt-hero-sub">
+          Chicken, mutton, duck, fish, fresh vegetables and daily groceries —
+          delivered the same day. Register once and we'll call you for every order.
+        </p>
+        <div class="d-flex gap-2 justify-content-center justify-content-lg-start flex-wrap">
+          <a href="#register" class="btn vt-btn-primary btn-lg">Register Now</a>
+          <a href="tel:{{ brand_phone }}" class="btn vt-btn-outline btn-lg">📞 Call {{ brand_phone }}</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="vt-hero-art" aria-hidden="true">
+          <div class="vt-hero-emoji">🛒🥬🍗🐟</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STORY ============ -->
+<section class="vt-section vt-section-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2>Our story</h2>
+        <p class="lead mb-3">
+          {{ brand_name }} started from a simple wish — fresh meat and vegetables
+          should be one phone call away, not a long auto ride to the market.
+        </p>
+        <p class="text-muted">
+          We source from local farmers and butchers every morning, clean and pack
+          everything carefully, and bring it to your door the same day. No middlemen,
+          fair price, real freshness.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATEGORIES ============ -->
+<section class="vt-section">
+  <div class="container">
+    <h2 class="text-center mb-4">What we deliver</h2>
+    <div class="row g-3 g-md-4">
+      {% for item in categories %}
+      <div class="col-6 col-md-4">
+        <div class="vt-category-card text-center h-100">
+          <div class="vt-category-emoji">{{ item.emoji }}</div>
+          <div class="vt-category-label">{{ item.label }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how" class="vt-section vt-section-light">
+  <div class="container">
+    <h2 class="text-center mb-4">How it works</h2>
+    <div class="row g-3 g-md-4">
+      <div class="col-12 col-md-4">
+        <div class="vt-step">
+          <div class="vt-step-num">1</div>
+          <h3 class="vt-step-title">Register</h3>
+          <p class="vt-step-text">Fill the short form with your name, phone, and area.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="vt-step">
+          <div class="vt-step-num">2</div>
+          <h3 class="vt-step-title">We call you</h3>
+          <p class="vt-step-text">Our team rings you on the number you provided to confirm your order.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="vt-step">
+          <div class="vt-step-num">3</div>
+          <h3 class="vt-step-title">We deliver</h3>
+          <p class="vt-step-text">Fresh goods reach your door the same day, no fuss.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="vt-section">
+  <div class="container">
+    <h2 class="text-center mb-4">Why choose us</h2>
+    <div class="row g-3 g-md-4">
+      <div class="col-6 col-md-3">
+        <div class="vt-why text-center">
+          <div class="vt-why-icon">🌿</div>
+          <div class="vt-why-label">Fresh</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="vt-why text-center">
+          <div class="vt-why-icon">🏡</div>
+          <div class="vt-why-label">Local</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="vt-why text-center">
+          <div class="vt-why-icon">⚡</div>
+          <div class="vt-why-label">Fast</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="vt-why text-center">
+          <div class="vt-why-icon">💰</div>
+          <div class="vt-why-label">Fair price</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGISTER FORM ============ -->
+<section id="register" class="vt-section vt-section-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="vt-form-card">
+          <div class="vt-form-eyebrow">Free · No commitment</div>
+          <h2 class="vt-form-title">Get fresh, delivered.</h2>
+          <p class="vt-form-sub">20 seconds. We'll call you back.</p>
+
+          <form method="post" action="{% url 'customers:register' %}" novalidate id="vt-register-form" autocomplete="on">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+              <div class="alert alert-danger small">{{ form.non_field_errors }}</div>
+            {% endif %}
+
+            <div class="form-floating mb-3">
+              {{ form.name }}
+              <label for="{{ form.name.id_for_label }}">Your name</label>
+              {% if form.name.errors %}<div class="vt-field-error">{{ form.name.errors|join:", " }}</div>{% endif %}
+            </div>
+
+            <div class="form-floating mb-3">
+              {{ form.phone }}
+              <label for="{{ form.phone.id_for_label }}">Phone — 10 digit mobile</label>
+              {% if form.phone.errors %}<div class="vt-field-error">{{ form.phone.errors|join:", " }}</div>{% endif %}
+            </div>
+
+            <div class="form-floating mb-3">
+              {{ form.place }}
+              <label for="{{ form.place.id_for_label }}">Area / locality</label>
+              {% if form.place.errors %}<div class="vt-field-error">{{ form.place.errors|join:", " }}</div>{% endif %}
+            </div>
+
+            <div class="form-floating mb-4">
+              {{ form.notes }}
+              <label for="{{ form.notes.id_for_label }}">What you usually buy (optional)</label>
+            </div>
+
+            <button type="submit" class="btn vt-btn-primary w-100 vt-submit" id="vt-submit-btn">
+              Register Now <span aria-hidden="true">→</span>
+            </button>
+            <p class="vt-form-fineprint">🔒 We never share your number.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Smooth-scroll to the form when the navbar/CTA "Register" is tapped.
+  document.querySelectorAll('a[href="#register"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var el = document.getElementById('register');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // If we re-rendered with errors, scroll to the form on load.
+  {% if scroll_to_form %}
+  window.addEventListener('load', function () {
+    var el = document.getElementById('register');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  {% endif %}
+
+  // Prevent double submit.
+  var form = document.getElementById('vt-register-form');
+  var btn = document.getElementById('vt-submit-btn');
+  if (form && btn) {
+    form.addEventListener('submit', function () {
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      setTimeout(function () { btn.disabled = false; btn.textContent = 'Register Now'; }, 5000);
+    });
+  }
+</script>
+
+{% endblock %}
