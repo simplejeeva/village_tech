@@ -4,4 +4,4 @@ python-dotenv>=1.0
 # Postgres support for production (Vercel + Neon).
 # Locally these still install fine; settings fall back to SQLite when DATABASE_URL is absent.
 dj-database-url>=2.1
-psycopg[binary]>=3.1
+psycopg2-binary>=2.9
